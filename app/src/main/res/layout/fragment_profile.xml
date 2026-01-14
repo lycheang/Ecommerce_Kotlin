@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_person"
+                android:background="#E0E0E0"
+                android:padding="20dp"
+                app:tint="@color/icon_tint_primary"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user@example.com"
+            android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginBottom="32dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="?attr/colorSurface"
+            android:elevation="2dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/btnEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                app:drawableStartCompat="@drawable/ic_edit"
+                app:drawableTint="@color/icon_tint_primary"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="?attr/colorOnSurface"/>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/btnOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                app:drawableStartCompat="@drawable/ic_history"
+                app:drawableTint="@color/icon_tint_primary"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="?attr/colorOnSurface"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/btnAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Address"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                app:drawableStartCompat="@drawable/ic_location"
+                app:drawableTint="@color/icon_tint_primary"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="?attr/colorOnSurface"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/btnPaymentMethods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment Methods"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                app:drawableStartCompat="@drawable/ic_credit_card"
+                app:drawableTint="@color/icon_tint_primary"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="?attr/colorOnSurface"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            app:icon="@drawable/ic_logout"
+            app:iconGravity="textStart"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#FFEBEE"
+            android:textColor="#D32F2F"
+            app:iconTint="#D32F2F"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    </LinearLayout>
+</ScrollView>

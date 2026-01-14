@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_500">#BB86FC</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="red_error">#CF6679</color>
+
+    <color name="g_blue">#64B5F6</color> <color name="bg_screen">#121212</color>      <color name="bg_card">#1E1E1E</color>        <color name="bg_input">#2C2C2C</color>       <color name="text_primary">#FFFFFF</color>   <color name="text_secondary">#B3B3B3</color> <color name="icon_tint">#FFFFFF</color>      <color name="divider">#373737</color>        </resources>

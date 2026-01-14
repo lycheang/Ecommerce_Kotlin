@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="Notifications"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/wishlistFragment"
+        android:icon="@drawable/ic_fav"
+        android:title="My Wishlist"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/reviewFragment"
+        android:icon="@drawable/ic_star"
+        
+        android:title="My Reviews"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person"
+        android:title="Profile"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_setting"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"
+        app:showAsAction="never"/>
+
+</menu>

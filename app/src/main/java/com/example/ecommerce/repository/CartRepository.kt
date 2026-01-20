@@ -16,7 +16,7 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class CartRepository @Inject constructor(
-    private val firestore: FirebaseFirestore, // Private: Don't let VM touch this!
+    private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth
 ) {
 
@@ -29,7 +29,6 @@ class CartRepository @Inject constructor(
 
         return try {
             // --- STEP 1: PRE-CHECK STOCK (Reads Only) ---
-            // We check ALL items before we start writing anything.
             for (item in cartItems) {
                 val productSnapshot = firestore.collection("products")
                     .document(item.productId).get().await()
@@ -41,7 +40,6 @@ class CartRepository @Inject constructor(
             }
 
             // --- STEP 2: EXECUTE WRITES (Batch) ---
-            // Now that we know stock is okay, we write everything at once.
             val batch = firestore.batch()
 
             // A. Save Order
@@ -100,8 +98,6 @@ class CartRepository @Inject constructor(
                 if (snapshot != null) {
                     val items = snapshot.toObjects(CartItem::class.java)
                     // MANUAL ID FIX: Firestore documents have IDs (e.g., "prod123")
-                    // but the converted object might have id="" if @DocumentId is missing.
-                    // We manually copy the Doc ID into the object here.
                     for (i in items.indices) {
                         items[i].id = snapshot.documents[i].id
                     }

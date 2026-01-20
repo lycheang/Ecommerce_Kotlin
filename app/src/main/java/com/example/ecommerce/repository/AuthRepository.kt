@@ -14,7 +14,6 @@ class AuthRepository @Inject constructor(
 ) {
     // ... Login function stays the same ...
     suspend fun login(email: String, pass: String): Resource<User> {
-        // (Your existing login code here)
         return try {
             val result = auth.signInWithEmailAndPassword(email, pass).await()
             val uid = result.user?.uid ?: return Resource.Error("Authentication failed")
@@ -32,7 +31,6 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    // --- FIX IS HERE ---
     suspend fun signup(name: String, email: String, pass: String): Resource<Boolean> {
         return try {
             // 1. Create User
@@ -56,6 +54,29 @@ class AuthRepository @Inject constructor(
         } catch (e: Exception) {
             e.printStackTrace()
             Resource.Error(e.message ?: "Signup failed")
+        }
+    }
+    suspend fun sendPasswordResetEmail(email: String): Resource<String> {
+        return try {
+            auth.sendPasswordResetEmail(email).await()
+            Resource.Success("Reset link sent to your email")
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Failed to send reset email")
+        }
+    }
+    suspend fun updatePassword(newPass: String): Resource<Boolean> {
+        return try {
+            val user = auth.currentUser
+            if (user != null) {
+                user.updatePassword(newPass).await() // 👈 This updates it instantly!
+                Resource.Success(true)
+            } else {
+                Resource.Error("User not logged in")
+            }
+        } catch (e: Exception) {
+            // NOTE: If the user logged in a long time ago, Firebase might ask them
+            // to re-login before allowing this. (Security Sensitive Action)
+            Resource.Error(e.message ?: "Update failed. Please logout and login again.")
         }
     }
 }

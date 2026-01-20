@@ -29,9 +29,6 @@ class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentOrderHistoryBinding.bind(view)
 
-        // Back button logic if you have one in XML
-        // binding.imgBack.setOnClickListener { findNavController().popBackStack() }
-
         setupRecyclerView()
         observeOrders()
     }

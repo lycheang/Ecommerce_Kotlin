@@ -37,7 +37,7 @@ class AddressViewModel @Inject constructor(
             val list = result.toObjects(Address::class.java)
             _addresses.value = list
         } catch (e: Exception) {
-            // Handle error
+
         }
     }
 

@@ -40,7 +40,6 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
         // 2. Handle "Go to Login" Link (Go Back)
         binding.tvGoToLogin.setOnClickListener {
             findNavController().popBackStack()
-            // Or use navigate(R.id.action_signupFragment_to_loginFragment) if pop isn't preferred
         }
 
         // 3. Social Placeholders

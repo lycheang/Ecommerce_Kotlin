@@ -23,10 +23,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         val prefs = requireActivity().getSharedPreferences("app_settings", Context.MODE_PRIVATE)
 
         // 2. Handle Back Arrow Click (Uncommented so it works)
-        // Ensure you have an 'imgBack' in your XML, or change ID to match
-//        binding.imgBack.setOnClickListener {
-//            findNavController().navigateUp()
-//        }
 
         // 3. Load saved state BEFORE setting the listener
         val isDarkMode = prefs.getBoolean("dark_mode", false)

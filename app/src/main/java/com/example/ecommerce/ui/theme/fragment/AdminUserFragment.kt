@@ -50,7 +50,7 @@ class AdminUserFragment : Fragment(R.layout.fragment_admin_user) {
         // 2. clicking the trash icon (Delete)
         userAdapter = AdminUserAdapter(
             onUserClick = { user -> showRoleDialog(user) },
-            onDeleteClick = { user -> showDeleteDialog(user) }, // <--- CALLS THE POP-UP
+            onDeleteClick = { user -> showDeleteDialog(user) },
          onEditClick = { user -> showRoleDialog(user) }
         )
 

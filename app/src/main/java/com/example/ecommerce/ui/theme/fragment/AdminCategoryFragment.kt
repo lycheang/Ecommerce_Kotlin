@@ -36,9 +36,7 @@ class AdminCategoryFragment : Fragment(R.layout.fragment_admin_category) {
         setupRecyclerView()
 
         // 3. Add Category Button Logic
-        // MATCHED ID: 'btnAddCat' from your XML
         binding.btnAddCat.setOnClickListener {
-            // MATCHED ID: 'etNewCategory' from your XML
             val name = binding.etNewCategory.text.toString().trim()
 
             if (name.isNotEmpty()) {

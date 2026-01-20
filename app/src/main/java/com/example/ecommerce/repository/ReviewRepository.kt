@@ -58,7 +58,6 @@ class ReviewRepository @Inject constructor(
         val uid = auth.currentUser?.uid ?: return Resource.Error("User not logged in")
 
         return try {
-            // NOTE: Requires "Collection Group" Index in Firestore Console
             val snapshot = firestore.collectionGroup("reviews")
                 .whereEqualTo("userId", uid)
                 .orderBy("date", Query.Direction.DESCENDING)

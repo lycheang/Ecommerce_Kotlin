@@ -15,6 +15,7 @@ class CategoryRepository @Inject constructor(
         return try {
             val snapshot = firestore.collection("categories").get().await()
             val categories = snapshot.toObjects(Category::class.java)
+
             Resource.Success(categories)
         } catch (e: Exception) {
             Resource.Error(e.message ?: "Failed to load categories")
@@ -25,7 +26,14 @@ class CategoryRepository @Inject constructor(
     suspend fun addCategory(name: String): Resource<Boolean> {
         return try {
             val docRef = firestore.collection("categories").document()
-            val category = Category(id = docRef.id, name = name)
+
+            // FIX: Add 'createdAt' timestamp
+            val category = Category(
+                id = docRef.id,
+                name = name,
+                createdAt = System.currentTimeMillis()
+            )
+
             docRef.set(category).await()
             Resource.Success(true)
         } catch (e: Exception) {

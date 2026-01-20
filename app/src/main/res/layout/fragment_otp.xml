@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Code"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We have sent a code to your email."
+        android:textAlignment="center"
+        android:textColor="#757575"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/etOtpInput"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="4-Digit Code"
+        android:gravity="center"
+        android:padding="12dp"
+        android:inputType="number"
+        android:maxLength="4"
+        android:letterSpacing="0.2"
+        android:background="@drawable/bg_search_bar"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Verify Code"
+        android:textStyle="bold"/>
+
+</LinearLayout>

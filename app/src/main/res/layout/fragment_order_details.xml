@@ -5,36 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground">
-
-    <LinearLayout
-        android:id="@+id/layoutHeader"
-        android:layout_width="match_parent"
+    android:background="@color/bg_card"> <LinearLayout
+    android:id="@+id/layoutHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="@color/bg_card"
+    android:elevation="4dp"
+    app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        android:background="?attr/colorSurface"
-        android:elevation="4dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnBack"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--            android:src="@drawable/ic_back_arrow"-->
-<!--            app:tint="@color/black"-->
-<!--            android:contentDescription="Back" />-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order Details"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="16dp"
-            android:textColor="?attr/colorOnSurface"/>
-    </LinearLayout>
+        android:text="Order Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/text_primary"/>
+</LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,8 +43,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="?attr/colorSurface">
-
+                app:cardBackgroundColor="@color/bg_card">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,8 +62,7 @@
                             android:layout_weight="1"
                             android:text="Order #123456"
                             android:textStyle="bold"
-                            android:textColor="?attr/colorOnSurface"/>
-
+                            android:textColor="@color/text_primary"/>
                         <TextView
                             android:id="@+id/tvOrderStatus"
                             android:layout_width="wrap_content"
@@ -92,7 +79,7 @@
                         android:text="Placed on Dec 30, 2025"
                         android:textSize="14sp"
                         android:layout_marginTop="4dp"
-                        android:alpha="0.7"/>
+                        android:textColor="@color/textColorSecondary"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -101,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="Shipping Address"
                 android:textStyle="bold"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.cardview.widget.CardView
@@ -109,7 +97,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="?attr/colorSurface">
+                app:cardBackgroundColor="@color/bg_card">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="123 Main St, Phnom Penh, Cambodia"
-                        android:textColor="?attr/colorOnSurface"/>
+                        android:textColor="@color/text_primary"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -131,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="Items"
                 android:textStyle="bold"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -140,23 +129,22 @@
                 android:nestedScrollingEnabled="false"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_product"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/textColorSecondary"
+                android:alpha="0.3"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
+
             <LinearLayout
                 android:id="@+id/layoutCostBreakdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/tvTotalAmount"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
+                android:background="@null">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,14 +155,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Subtotal"
-                        android:textColor="@color/black" />
-                    <TextView
-                        android:id="@+id/tvSubtotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                        android:textColor="@color/text_primary" /> <TextView
+                    android:id="@+id/tvSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textColor="@color/text_primary" /> </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -186,12 +172,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Discount"
-                        android:textColor="#388E3C" /> <TextView
+                        android:textColor="#4CAF50" /> <TextView
                     android:id="@+id/tvDiscount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-$0.00"
-                    android:textColor="#388E3C" />
+                    android:textColor="#4CAF50" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -204,22 +190,22 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Delivery Fee"
-                        android:textColor="@color/black" />
-                    <TextView
-                        android:id="@+id/tvDeliveryFee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                        android:textColor="@color/text_primary" /> <TextView
+                    android:id="@+id/tvDeliveryFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textColor="@color/text_primary" /> </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#E0E0E0"
+                    android:background="@color/textColorSecondary"
+                    android:alpha="0.3"
                     android:layout_marginBottom="8dp"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -231,16 +217,15 @@
                     android:layout_weight="1"
                     android:text="Total Amount"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
-                <TextView
-                    android:id="@+id/tvTotalAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$150.00"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:textColor="@color/teal_700"/>
-            </LinearLayout>
+                    android:textColor="@color/text_primary"/> <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$150.00"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"/> </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -250,6 +235,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -31,15 +31,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
 
-
                 <ImageButton
                     android:id="@+id/btnFavorite"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="16dp"
-                    android:background="@drawable/bg_social_button"
+                    android:background="@drawable/bg_circle_primary"
+                    android:backgroundTint="@color/bg_card"
                     android:src="@drawable/ic_fav"
-                    app:tint="@color/red"
+                    app:tint="#F44336"
                     android:padding="12dp"
                     android:elevation="6dp"
                     app:layout_constraintBottom_toBottomOf="@id/imgProductDetail"
@@ -59,8 +59,7 @@
                     android:text="Product Name"
                     android:textSize="26sp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorOnSurface"/>
-
+                    android:textColor="@color/text_primary"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,8 +74,7 @@
                         android:text="$0.00"
                         android:textSize="22sp"
                         android:textStyle="bold"
-                        android:textColor="@color/teal_700"/>
-
+                        android:textColor="@color/colorAccent"/>
                     <TextView
                         android:id="@+id/tvStockStatus"
                         android:layout_width="wrap_content"
@@ -93,14 +91,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description..."
+                    android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="@color/textColorSecondary"
                     android:layout_marginTop="16dp"/>
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="?android:attr/listDivider"
+                    android:background="@color/textColorSecondary"
+                    android:alpha="0.2"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="16dp"/>
 
@@ -111,57 +110,63 @@
                     android:text="Reviews"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorOnSurface"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="12dp"/>
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_search_bar"
-                    android:padding="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/bg_card"
                     android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Write a review:"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface"/>
-
-                    <RatingBar
-                        android:id="@+id/rbNewRating"
-                        style="?android:attr/ratingBarStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:numStars="5"
-                        android:stepSize="1.0"
-                        android:rating="0"
-                        android:progressTint="#FFC107"
-                        android:secondaryProgressTint="@android:color/transparent"
-                        android:isIndicator="false"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:id="@+id/etReviewComment"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Share your thoughts..."
-                        android:textSize="14sp"
-                        android:background="@null"
-                        android:minHeight="48dp"
-                        android:textColor="?attr/colorOnSurface"/>
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                    <Button
-                        android:id="@+id/btnSubmitReview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Post Review"
-                        android:layout_gravity="end"
-                        android:scaleX="0.9"
-                        android:scaleY="0.9"/>
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Write a review:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <RatingBar
+                            android:id="@+id/rbNewRating"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:stepSize="1.0"
+                            android:rating="0"
+                            android:progressTint="#FFC107"
+                            android:secondaryProgressTint="@android:color/transparent"
+                            android:isIndicator="false"
+                            android:layout_marginTop="8dp"/>
+
+                        <EditText
+                            android:id="@+id/etReviewComment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Share your thoughts..."
+                            android:textSize="14sp"
+                            android:background="@null"
+                            android:minHeight="48dp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/textColorSecondary"/>
+                        <Button
+                            android:id="@+id/btnSubmitReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Post Review"
+                            android:layout_gravity="end"
+                            android:scaleX="0.9"
+                            android:scaleY="0.9"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvReviews"
@@ -183,10 +188,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="?attr/colorSurface"
+        android:background="@color/bg_card"
         android:elevation="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
-
         <Button
             android:id="@+id/btnAddToCart"
             android:layout_width="match_parent"

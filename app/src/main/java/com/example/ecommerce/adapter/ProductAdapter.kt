@@ -40,7 +40,6 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ProductViewHolder>(Pr
             binding.tvProductName.text = product.name
             binding.tvProductPrice.text = "$${product.price}"
 
-            // --- FIX: USE YOUR HELPER INSTEAD OF GLIDE ---
             val imgUrl = product.images.firstOrNull()
             binding.imgProduct.loadBase64OrUrl(imgUrl)
             // ---------------------------------------------

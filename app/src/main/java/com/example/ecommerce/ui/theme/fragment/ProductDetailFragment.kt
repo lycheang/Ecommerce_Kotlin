@@ -75,7 +75,6 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_details) {
 
             if (rating < 1) return@setOnClickListener
 
-            // FIX: Pass productName to ViewModel
             currentProduct?.let { product ->
                 detailViewModel.addReview(product.id, product.name, rating, comment)
             }

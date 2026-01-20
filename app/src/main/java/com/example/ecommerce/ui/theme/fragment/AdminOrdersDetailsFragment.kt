@@ -124,23 +124,35 @@ class AdminOrdersDetailsFragment : Fragment(R.layout.fragment_admin_orders_detai
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // FIX: Observe 'updateStatus' (matches your new ViewModel), NOT 'updateState'
                 viewModel.updateStatus.collectLatest { result ->
                     when (result) {
-                        is Resource.Loading -> binding.btnUpdateOrder.startAnimation()
+                        is Resource.Loading -> {
+                            // 1. SHOW LOADING
+                            binding.btnUpdateOrder.text = "Saving..."
+                            binding.btnUpdateOrder.isEnabled = false // Disable button
+                            binding.progressBarUpdate.visibility = View.VISIBLE // Show spinner
+                        }
                         is Resource.Success -> {
-                            binding.btnUpdateOrder.revertAnimation()
+                            // 2. SHOW SUCCESS
+                            binding.progressBarUpdate.visibility = View.INVISIBLE
+                            binding.btnUpdateOrder.text = "Save Status"
+                            binding.btnUpdateOrder.isEnabled = true
 
+                            // Update UI text immediately
                             val newStatus = binding.spinnerStatus.selectedItem.toString()
                             binding.tvOrderStatus.text = "Status: $newStatus"
 
-                            // Update the color dynamically
+                            // Change color if you have that function
                             setStatusColor(newStatus)
 
-                            Toast.makeText(context, "Status Updated & Notification Sent!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Status Updated!", Toast.LENGTH_SHORT).show()
                         }
                         is Resource.Error -> {
-                            binding.btnUpdateOrder.revertAnimation()
+                            // 3. SHOW ERROR
+                            binding.progressBarUpdate.visibility = View.INVISIBLE
+                            binding.btnUpdateOrder.text = "Save Status"
+                            binding.btnUpdateOrder.isEnabled = true
+
                             Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
                         }
                         else -> Unit

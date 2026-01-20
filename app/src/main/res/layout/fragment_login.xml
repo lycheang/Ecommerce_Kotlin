@@ -96,6 +96,17 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"/>
+
+    <TextView
         android:id="@+id/tvGoToSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-
+    android:fillViewport="true"
+    android:background="@color/bg_card">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,11 +24,10 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_close"
-                app:tint="@color/black"
+                app:tint="@color/icon_tint"
                 android:padding="2dp"
                 android:clickable="true"
                 android:focusable="true"/>
-
             <TextView
                 android:id="@+id/tvOrderDetailTitle"
                 android:layout_width="wrap_content"
@@ -37,7 +36,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginStart="12dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
         </LinearLayout>
 
         <TextView
@@ -45,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order ID: #"
-            android:textColor="@color/black"
+            android:textColor="@color/text_primary"
             android:textSize="16sp"/>
 
         <TextView
@@ -54,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Date: 12 Oct 2025"
             android:layout_marginTop="4dp"
-            android:textColor="#757575"/>
+            android:textColor="@color/textColorSecondary"/>
 
         <TextView
             android:id="@+id/tvOrderStatus"
@@ -63,27 +62,28 @@
             android:text="Status: Pending"
             android:textStyle="bold"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"/>
-
+            android:textSize="16sp"
+            android:textColor="@color/teal_700"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="12dp"
-            android:background="#E0E0E0" />
-
+            android:background="@color/textColorSecondary"
+            android:alpha="0.2" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shipping Address"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/text_primary"/>
 
         <TextView
             android:id="@+id/tvFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User Name"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_primary"/>
 
         <TextView
             android:id="@+id/tvAddress"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:text="123 Street, City, Country"
             android:layout_marginTop="2dp"
-            android:textColor="#616161"/>
+            android:textColor="@color/textColorSecondary"/>
 
         <TextView
             android:id="@+id/tvPhoneNumber"
@@ -99,13 +99,14 @@
             android:layout_height="wrap_content"
             android:text="+1 234 567 89"
             android:layout_marginTop="2dp"
-            android:textColor="#616161"/>
+            android:textColor="@color/textColorSecondary"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="12dp"
-            android:background="#E0E0E0" />
+            android:background="@color/textColorSecondary"
+            android:alpha="0.2" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,7 +114,7 @@
             android:text="Products"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/text_primary"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvOrderItems"
@@ -125,7 +126,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="12dp"
-            android:background="#E0E0E0" />
+            android:background="@color/textColorSecondary"
+            android:alpha="0.2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,14 +140,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Subtotal"
-                android:textColor="#757575"/>
+                android:textColor="@color/textColorSecondary"/>
 
             <TextView
                 android:id="@+id/tvSubtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$0.00"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
         </LinearLayout>
 
         <LinearLayout
@@ -159,14 +161,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Delivery Fee"
-                android:textColor="#757575"/>
+                android:textColor="@color/textColorSecondary"/>
 
             <TextView
                 android:id="@+id/tvDeliveryFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$0.00"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
         </LinearLayout>
 
         <LinearLayout
@@ -181,21 +183,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Discount"
-                android:textColor="#757575"/>
+                android:textColor="@color/textColorSecondary"/>
 
             <TextView
                 android:id="@+id/tvDiscount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-$0.00"
-                android:textColor="#4CAF50"/> </LinearLayout>
+                android:textColor="#4CAF50"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="#E0E0E0" />
+            android:background="@color/textColorSecondary"
+            android:alpha="0.2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -209,7 +213,7 @@
                 android:text="Total"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <TextView
                 android:id="@+id/tvTotalPrice"
@@ -218,7 +222,7 @@
                 android:text="$0.00"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/g_blue"/>
+                android:textColor="@color/colorAccent"/>
         </LinearLayout>
 
         <TextView
@@ -227,26 +231,43 @@
             android:text="Update Order Status"
             android:textStyle="bold"
             android:layout_marginTop="24dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/text_primary"/>
 
-        <Spinner
-            android:id="@+id/spinnerStatus"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_search_bar"
-            android:paddingStart="8dp"/>
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_input"
+            android:layout_marginTop="8dp">
 
-        <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="8dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnUpdateOrder"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:text="Save Status"
-            android:background="@drawable/blue_background"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="10dp"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/g_blue" />
+
+        <ProgressBar
+            android:id="@+id/progressBarUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:indeterminateTint="@color/colorPrimary"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

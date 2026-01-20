@@ -39,7 +39,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         // 2. Check if it is empty
         if (name.isNullOrEmpty()) {
-            // FIX: Show this text if Firebase has no name
             binding.tvName.text = "Guest User"
             binding.tvName.setTextColor(android.graphics.Color.RED) // Debug color
         } else {

@@ -10,7 +10,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(private val prefs: SharedPreferences) : ViewModel() {
 
     fun toggleDarkMode(isEnabled: Boolean) {
-        // Save the user's preference
+
         prefs.edit().putBoolean("dark_mode", isEnabled).apply()
 
         // Apply the theme change immediately

@@ -25,7 +25,6 @@ class WishlistViewModel @Inject constructor(
 
     // ---------- GET LIST ----------
     fun getWishlist() = viewModelScope.launch {
-        // Emit loading state only if the list is empty to avoid flickering on refresh
         if (_wishlistProducts.value is Resource.Loading || _wishlistProducts.value.data.isNullOrEmpty()) {
             _wishlistProducts.value = Resource.Loading()
         }

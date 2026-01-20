@@ -62,9 +62,7 @@ class AdminViewModel @Inject constructor(
         loadProducts()
     }
 
-    // ==========================================
     //              PRODUCTS LOGIC
-    // ==========================================
     fun loadProducts() = viewModelScope.launch {
         _isLoading.value = true
         when (val result = repository.getProducts()) {
@@ -118,8 +116,19 @@ class AdminViewModel @Inject constructor(
     //              CATEGORIES LOGIC
     // ==========================================
     private fun loadCategories() = viewModelScope.launch {
-        if (repository.getCategories() is Resource.Success) {
-            _categories.value = (repository.getCategories() as Resource.Success).data ?: emptyList()
+        val result = repository.getCategories()
+
+        if (result is Resource.Success) {
+            val rawList = result.data ?: emptyList()
+
+            // OPTION 1: Oldest to Newest (1, 2, 3...)
+            _categories.value = rawList.sortedBy { it.createdAt }
+
+            // OPTION 2: Newest to Oldest (3, 2, 1...)
+            // _categories.value = rawList.sortedByDescending { it.createdAt }
+
+        } else if (result is Resource.Error) {
+            sendEvent(AdminEvent.ShowToast(result.message ?: "Failed to load"))
         }
     }
 

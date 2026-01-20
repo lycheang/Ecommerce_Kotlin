@@ -35,7 +35,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 Toast.makeText(context, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
         }
-
+        binding.tvForgotPassword.setOnClickListener {
+            // Correct ID from the XML above
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
         // Navigate to Signup
         binding.tvGoToSignup.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
@@ -55,8 +58,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                         val user = resource.data
                         if (user != null) {
-                            // DEBUGGING: Remove this Toast later
-                            // This tells you exactly what the app sees
                             Toast.makeText(context, "Role fetched: ${user.role}", Toast.LENGTH_LONG).show()
 
                             // FIX: Check for "admin" (lowercase) or "ADMIN" (uppercase)

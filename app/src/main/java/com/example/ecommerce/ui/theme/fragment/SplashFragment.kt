@@ -18,7 +18,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            delay(1500)
+            delay(2000)
 
             // SAFETY CHECK: If user minimized app, stop here to prevent crash
             if (!isAdded) return@launchWhenStarted

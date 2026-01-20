@@ -123,14 +123,14 @@ class CheckoutViewModel @Inject constructor(
             for (item in finalCartItems) subtotal += (item.price * item.quantity)
 
             val discountPercentage = when {
-                subtotal > 500 -> 0.50
-                subtotal >= 200 -> 0.30
-                subtotal >= 100 -> 0.20
-                subtotal > 50 -> 0.10
+                subtotal > 500 -> 0.30
+                subtotal >= 200 -> 0.20
+                subtotal >= 100 -> 0.10
+                subtotal > 50 -> 0.05
                 else -> 0.0
             }
             val discountAmount = subtotal * discountPercentage
-            val deliveryFee = if (subtotal > 50) 0.0 else 3.0
+            val deliveryFee = if (subtotal > 50) 0.0 else 2.0
             val finalTotal = (subtotal - discountAmount) + deliveryFee
 
             // 4. ATOMIC TRANSACTION (Split into READ phase and WRITE phase)

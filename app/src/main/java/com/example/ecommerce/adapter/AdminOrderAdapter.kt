@@ -26,7 +26,6 @@ class AdminOrderAdapter(
             binding.tvStatus.text = order.status
 
             // 2. Format Date
-            // Ensure order.date is a Long (timestamp).
             try {
                 val date = Date(order.date)
                 val format = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())

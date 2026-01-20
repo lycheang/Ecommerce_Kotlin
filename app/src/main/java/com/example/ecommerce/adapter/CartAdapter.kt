@@ -34,7 +34,6 @@ class CartAdapter(
             binding.tvQuantity.text = item.quantity.toString()
 
             // --- FIX: USE HELPER ONLY ---
-            // No Glide here!
             binding.imgProduct.loadBase64OrUrl(item.imageUrl)
             // ----------------------------
 

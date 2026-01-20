@@ -78,7 +78,6 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                         binding.progressBar.visibility = View.GONE
                         Toast.makeText(context, resource.message, Toast.LENGTH_SHORT).show()
                     }
-                    // FIX: Add this branch to satisfy the compiler
                     else -> Unit
                 }
             }

@@ -82,7 +82,6 @@ class WishlistFragment : Fragment(R.layout.fragment_wishlist) {
                             binding.progressBar.visibility = View.GONE
                             Snackbar.make(requireView(), resource.message ?: "Error", Snackbar.LENGTH_LONG).show()
                         }
-                        // FIX: Added this branch to handle Resource.Unspecified
                         else -> Unit
                     }
                 }

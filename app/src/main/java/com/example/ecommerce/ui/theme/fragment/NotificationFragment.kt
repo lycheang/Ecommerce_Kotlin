@@ -32,9 +32,9 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         observeNotifications()
 
         // Back button logic (if you have one)
-        binding.imageBack?.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
+//        binding.imageBack?.setOnClickListener {
+//            requireActivity().onBackPressed()
+//        }
     }
 
     private fun setupRecyclerView() {

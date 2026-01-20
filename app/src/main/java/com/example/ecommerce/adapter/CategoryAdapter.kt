@@ -22,7 +22,6 @@ class CategoryAdapter(
         fun bind(category: Category, position: Int) {
             binding.tvCategoryName.text = category.name
 
-            // Debugging: Print to Logcat to prove data is arriving
             Log.d("CategoryAdapter", "Binding category: ${category.name}")
 
             if (position == selectedPosition) {
@@ -46,7 +45,6 @@ class CategoryAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        // This ensures we use the correct layout
         val binding = ItemCategoryUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CategoryViewHolder(binding)
     }

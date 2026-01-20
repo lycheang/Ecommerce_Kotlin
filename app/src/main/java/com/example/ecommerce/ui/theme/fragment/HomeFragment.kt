@@ -40,8 +40,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         observeData()
     }
 
-    // ... (setupRecyclerViews stays the same) ...
-
     private fun setupSearch() {
         // IMPROVEMENT: Use TextWatcher for "As-You-Type" searching
         binding.etSearch.addTextChangedListener(object : TextWatcher {

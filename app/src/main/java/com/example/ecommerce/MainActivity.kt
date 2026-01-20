@@ -63,39 +63,48 @@ class MainActivity : AppCompatActivity() {
 
         // 5. Setup Menu & Badge
         setupMenu()
-        setupCartBadge() // Now works because viewModel is declared
+        setupCartBadge()
 
         // 6. Visibility Logic
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                // Auth Screens -> Hide All
+                // --- AUTH SCREENS (Hide Everything) ---
+                R.id.splashFragment,
                 R.id.loginFragment,
                 R.id.signupFragment,
-                R.id.splashFragment -> {
+                R.id.forgotPasswordFragment, // 👈 Added
+                R.id.otpFragment,            // 👈 Added
+                R.id.resetPasswordFragment -> { // 👈 Added
                     binding.bottomNavigation.visibility = View.GONE
                     binding.toolbar.visibility = View.GONE
                 }
-                // Admin Screens -> Hide All (Admin has own UI)
+
+                // --- ADMIN SCREENS (Hide Everything) ---
                 R.id.adminDashboardFragment,
                 R.id.adminProductListFragment,
                 R.id.adminProductFragment,
                 R.id.adminCategoryFragment,
                 R.id.adminOrdersFragment,
                 R.id.adminUserFragment,
-
-                    // --- ADD THIS LINE ---
                 R.id.adminOrdersDetailsFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
-                    binding.toolbar.visibility = View.GONE // Optional: Hide toolbar too if you have a custom one
+                    binding.toolbar.visibility = View.GONE
                 }
 
-                // Customer Screens -> Show
+                // --- CUSTOMER SCREENS (Show Everything) ---
                 else -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                     binding.toolbar.visibility = View.VISIBLE
                 }
             }
         }
+
+        // 3. Create Notification Channel (Run this once in onCreate)
+        createNotificationChannel()
+    }
+
+    // Helper function to keep onCreate clean
+    private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 "ecommerce_channel",
@@ -151,7 +160,7 @@ class MainActivity : AppCompatActivity() {
                         badge.isVisible = true
                         badge.number = count
                         // FIX: Use ContextCompat for colors
-                        badge.backgroundColor = ContextCompat.getColor(this@MainActivity, R.color.red) // Ensure 'red' is in colors.xml
+                        badge.backgroundColor = ContextCompat.getColor(this@MainActivity, R.color.red)
                         badge.badgeTextColor = ContextCompat.getColor(this@MainActivity, R.color.white)
                     } else {
                         badge.isVisible = false

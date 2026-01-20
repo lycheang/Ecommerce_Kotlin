@@ -19,8 +19,6 @@ class HomeViewModel @Inject constructor(
     private val repo: ProductRepository,
     private val firestore: FirebaseFirestore
 ) : ViewModel() {
-
-    // 1. "Backup" List: Holds the full list of products currently displayed (for filtering)
     private var allProductsList = listOf<Product>()
 
     private val _products = MutableStateFlow<Resource<List<Product>>>(Resource.Loading())
@@ -34,7 +32,7 @@ class HomeViewModel @Inject constructor(
         loadCategories()
     }
 
-    // --- SEARCH LOGIC (Fixed) ---
+    // --- SEARCH LOGIC  ---
     fun searchProducts(query: String) {
         // If query is empty, restore the full list we saved earlier
         if (query.isEmpty()) {

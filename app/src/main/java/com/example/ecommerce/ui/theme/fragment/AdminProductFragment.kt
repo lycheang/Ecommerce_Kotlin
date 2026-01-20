@@ -71,7 +71,6 @@ class AdminProductFragment : Fragment(R.layout.fragment_admin_product) {
             binding.switchStock.isChecked = product.inStock
 
             // --- LOAD IMAGE (The Clean Way) ---
-            // We use the helper function from ViewExt.kt
             val imgString = product.images.firstOrNull()
             binding.imgPreview.loadBase64OrUrl(imgString)
 

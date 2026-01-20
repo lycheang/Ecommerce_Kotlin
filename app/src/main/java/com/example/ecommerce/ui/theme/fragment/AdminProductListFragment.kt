@@ -73,8 +73,6 @@ class AdminProductListFragment : Fragment(R.layout.fragment_admin_product_list) 
                     viewModel.products.collectLatest { productList ->
                         productAdapter.submitList(productList)
 
-                        // Optional: Show "No Products" text if empty
-                        // binding.tvEmptyState.isVisible = productList.isEmpty()
                     }
                 }
 
